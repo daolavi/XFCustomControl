@@ -7,7 +7,6 @@
         <StackLayout Spacing="2">
             <StackLayout Orientation="Horizontal" Spacing="0">
                 <local:CustomImage x:Name="LeftImage" 
-                       Source="{Binding LImageSource,Mode=TwoWay}" 
                        IsVisible="False" 
                        HorizontalOptions="Start" 
                        HeightRequest="25"
@@ -19,7 +18,6 @@
                                        HorizontalOptions="FillAndExpand"/>
                 
                 <local:CustomImage x:Name="RightImage" 
-                       Source="{Binding RImageSourceProperty,Mode=TwoWay}"
                        IsVisible="False" 
                        HorizontalOptions="End" 
                        HeightRequest="25"
