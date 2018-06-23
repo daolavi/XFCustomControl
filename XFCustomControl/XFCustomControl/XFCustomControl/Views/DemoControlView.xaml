@@ -7,7 +7,15 @@
              Title="Demo Control">
     <ContentPage.Content>
         <StackLayout Padding="10">
-            <controls:CustomPicker Padding="30" 
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="48"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <controls:CustomPicker Grid.Column="0" Padding="20,0,0,0"
                                    ItemsSource="{Binding PickerItems}" 
                                    ItemDisplayBinding="Name" 
                                    LabelDisplay="DisplayName"
@@ -18,8 +26,10 @@
                                    DefaultColor="Blue"
                                    LabelFontSize="20"
                                    LabelTextColor="Green"/>
-
+                <controls:SortSelector Grid.Column="1" SelectedSortType="{Binding SortType}" OnChanged="SortSelector_OnChanged"/>
+            </Grid>
             <Label Margin="30,5"  Text="{Binding SelectedItem.DisplayName}"/>
+            <Label Margin="30,5"  x:Name="SortType"/>
 
             <controls:ImageEntry Padding="30" 
                                  x:Name="SearchEntry" 

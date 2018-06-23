@@ -14,5 +14,10 @@ namespace XFCustomControl.Views
         {
             SearchEntry.Text = string.Empty;
         }
+
+        private void SortSelector_OnChanged(object sender, Controls.SortSelector.SortType e)
+        {
+            SortType.Text = e.ToString();
+        }
     }
 }

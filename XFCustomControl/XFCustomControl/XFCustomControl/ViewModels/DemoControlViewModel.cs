@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using XFCustomControl.Controls;
 using XFCustomControl.Models;
+using static XFCustomControl.Controls.SortSelector;
 
 namespace XFCustomControl.ViewModels
 {
@@ -33,6 +34,13 @@ namespace XFCustomControl.ViewModels
             }
         }
 
+        private SortType _sortType;
+        public SortType SortType
+        {
+            get => _sortType;
+            set => SetProperty(ref _sortType, value);
+        }
+
         public DemoControlViewModel(INavigationService navigationService)
         {
             _searchEntryDefaultText = "Default value";
@@ -51,6 +59,7 @@ namespace XFCustomControl.ViewModels
                 }
             };
             _selectedItem = _pickerItems[0];
+            _sortType = SortType.Descending;
         }
     }
 }
