@@ -1,6 +1,9 @@
-﻿using Prism.Navigation;
+﻿using Prism.Commands;
+using Prism.Navigation;
 using System;
 using System.Collections.Generic;
+using System.Windows.Input;
+using Xamarin.Forms;
 using XFCustomControl.Controls;
 using XFCustomControl.Models;
 using static XFCustomControl.Controls.SortSelector;
@@ -41,6 +44,28 @@ namespace XFCustomControl.ViewModels
             set => SetProperty(ref _sortType, value);
         }
 
+        public ICommand RefreshCommand => new Command(async () =>
+                                                        {
+                                                            IsListViewRefreshing = true;
+
+                                                            Console.WriteLine("Refreshing data");
+
+                                                            IsListViewRefreshing = false;
+                                                        });
+
+        private bool _isListViewRefreshing;
+        public bool IsListViewRefreshing
+        {
+            get => _isListViewRefreshing;
+            set => SetProperty(ref _isListViewRefreshing, value);
+        }
+
+        private List<string> _listViewItems;
+        public List<string> ListViewItems
+        {
+            get => _listViewItems;
+            set => SetProperty(ref _listViewItems, value);
+        }
         public DemoControlViewModel(INavigationService navigationService)
         {
             _searchEntryDefaultText = "Default value";
@@ -60,6 +85,10 @@ namespace XFCustomControl.ViewModels
             };
             _selectedItem = _pickerItems[0];
             _sortType = SortType.Descending;
+            _listViewItems = new List<string>
+            {
+                "Item1","Item2","Item3","Item4","Item5","Item6","Item7","Item8","Item1","Item2","Item3","Item4","Item5","Item6","Item7","Item8",
+            };
         }
     }
 }

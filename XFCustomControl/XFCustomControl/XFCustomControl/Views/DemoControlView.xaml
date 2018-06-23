@@ -28,16 +28,37 @@
                                    LabelTextColor="Green"/>
                 <controls:SortSelector Grid.Column="1" SelectedSortType="{Binding SortType}" OnChanged="SortSelector_OnChanged"/>
             </Grid>
+            
             <Label Margin="30,5"  Text="{Binding SelectedItem.DisplayName}"/>
+            
             <Label Margin="30,5"  x:Name="SortType"/>
 
-            <controls:ImageEntry Padding="30" 
+            <controls:ImageEntry Padding="30,5" 
                                  x:Name="SearchEntry" 
                                  Text="{Binding SearchEntryDefaultText}" 
                                  Placeholder="Placeholder" 
                                  AccentColor="#FF4081" 
                                  ImageAlignment="Both" 
                                  LeftImageSource="ic_search" RightImageSource="ic_x" RightImageClicked="SearchEntry_RightImageClicked"/>
+            <ListView RefreshCommand="{Binding RefreshCommand}" 
+                      IsRefreshing="{Binding IsListViewRefreshing, Mode=OneWay}"
+                      ItemsSource="{Binding ListViewItems}" 
+                      IsPullToRefreshEnabled="True"
+                      ItemSelected="OnSelection">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.ContextActions>
+                                <MenuItem Clicked="OnMore" Text="More" CommandParameter="{Binding .}" />
+                                <MenuItem Clicked="OnDelete" Text="Delete" IsDestructive="true" CommandParameter="{Binding .}" />
+                            </ViewCell.ContextActions>
+                            <StackLayout Padding="15,0">
+                                <Label Text="{Binding .}" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackLayout>
     </ContentPage.Content>
 </app:ContentPageBase>
