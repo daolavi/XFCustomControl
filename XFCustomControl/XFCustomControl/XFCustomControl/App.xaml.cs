@@ -1,32 +1,33 @@
-using System;
+using Prism;
+using Prism.Autofac;
+using Prism.Ioc;
+using XFCustomControl.ViewModels;
+using XFCustomControl.Views;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
-[assembly: XamlCompilation (XamlCompilationOptions.Compile)]
 namespace XFCustomControl
 {
-	public partial class App : Application
-	{
+	public partial class App : PrismApplication
+    {
 		public App ()
 		{
 			InitializeComponent();
-
-			MainPage = new MainPage();
 		}
 
-		protected override void OnStart ()
-		{
-			// Handle when your app starts
-		}
+        public App(IPlatformInitializer initializer = null) : base(initializer)
+        {
+        }
 
-		protected override void OnSleep ()
-		{
-			// Handle when your app sleeps
-		}
+        protected override async void OnInitialized()
+        {
+            await NavigationService.NavigateAsync("NavigationPage/DemoControlView");
+        }
 
-		protected override void OnResume ()
-		{
-			// Handle when your app resumes
-		}
-	}
+        protected override void RegisterTypes(IContainerRegistry containerRegistry)
+        {
+            containerRegistry.RegisterForNavigation<NavigationPage>();
+
+            containerRegistry.RegisterForNavigation<DemoControlView, DemoControlViewModel>();
+        }
+    }
 }

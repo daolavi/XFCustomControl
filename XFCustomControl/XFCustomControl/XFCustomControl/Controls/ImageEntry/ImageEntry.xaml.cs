@@ -12,6 +12,33 @@ namespace XFCustomControl.Controls
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ImageEntry : ContentView
     {
+
+        #region TextColor
+        public static BindableProperty TextColorProperty = BindableProperty.Create(nameof(TextColor),
+                                                             typeof(Color),
+                                                             typeof(ImageEntry),
+                                                             defaultValue: Color.Black);
+
+        public Color TextColor
+        {
+            get => (Color)GetValue(TextColorProperty);
+            set => SetValue(TextColorProperty, value);
+        }
+        #endregion
+
+        #region PlaceHolderColor
+        public static BindableProperty PlaceholderColorProperty = BindableProperty.Create(nameof(PlaceholderColor),
+                                                             typeof(Color),
+                                                             typeof(ImageEntry),
+                                                             defaultValue: Color.FromHex("#A8A8A8"));
+
+        public Color PlaceholderColor
+        {
+            get => (Color)GetValue(PlaceholderColorProperty);
+            set => SetValue(PlaceholderColorProperty, value);
+        }
+        #endregion
+
         #region Text
         public static BindableProperty TextProperty = BindableProperty.Create(nameof(Text),
                                                         typeof(string),
@@ -146,7 +173,7 @@ namespace XFCustomControl.Controls
                                                                          typeof(ImageEntry),
                                                                          defaultValue: ImageEntryAlignment.None,
                                                                          propertyChanged: OnImageAlignmentChanged);
-       
+
         public ImageEntryAlignment ImageAlignment
         {
             get => (ImageEntryAlignment)GetValue(ImageAlignmentProperty);
@@ -178,55 +205,60 @@ namespace XFCustomControl.Controls
         }
         #endregion
 
+
         public ImageEntry()
         {
             InitializeComponent();
+
             Entry.BindingContext = this;
+
             RightImage.ImageClicked += RightImageOn_Clicked;
             LeftImage.ImageClicked += LeftImageOn_Clicked;
-            Entry.PlaceholderColor = Color.FromHex("#A8A8A8");
-            Entry.Focused += async (s, a) =>
+        }
+
+        private void Entry_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (string.IsNullOrEmpty(Entry.Text))
             {
-                BottomBorder.HeightRequest = 2;
-                BottomBorder.BackgroundColor = AccentColor;
-                HiddenBottomBorder.BackgroundColor = AccentColor;
-                if (string.IsNullOrEmpty(Entry.Text))
-                {
-                    await Task.WhenAll
-                    (
-                        HiddenBottomBorder.LayoutTo(new Rectangle(BottomBorder.X, BottomBorder.Y, BottomBorder.Width, BottomBorder.Height), 200)
-                    );
-                    Entry.Placeholder = null;
-                }
-                else
-                {
-                    await HiddenBottomBorder.LayoutTo(new Rectangle(BottomBorder.X, BottomBorder.Y, BottomBorder.Width, BottomBorder.Height), 200);
-                }
-            };
-            Entry.Unfocused += async (s, a) =>
+                Entry.Placeholder = Placeholder;
+            }
+        }
+
+        private void Entry_Focused(object sender, FocusEventArgs e)
+        {
+            BottomBorder.HeightRequest = 1.5;
+            BottomBorder.BackgroundColor = AccentColor;
+            HiddenBottomBorder.BackgroundColor = AccentColor;
+            if (string.IsNullOrEmpty(Entry.Text))
             {
-                BottomBorder.HeightRequest = 1;
-                BottomBorder.BackgroundColor = Color.Gray;
-                if (string.IsNullOrEmpty(Entry.Text))
-                {
-                    await Task.WhenAll
-                    (
-                        HiddenBottomBorder.LayoutTo(new Rectangle(BottomBorder.X, BottomBorder.Y, 0, BottomBorder.Height), 200)
-                     );
-                    Entry.Placeholder = Placeholder;
-                }
-                else
-                {
-                    await HiddenBottomBorder.LayoutTo(new Rectangle(BottomBorder.X, BottomBorder.Y, 0, BottomBorder.Height), 200);
-                }
-            };
-            Entry.TextChanged += (s, a) =>
+                Task.WhenAll
+                (
+                    HiddenBottomBorder.LayoutTo(new Rectangle(BottomBorder.X, BottomBorder.Y, BottomBorder.Width, BottomBorder.Height))
+                );
+                Entry.Placeholder = null;
+            }
+            else
             {
-                if (string.IsNullOrEmpty(Entry.Text))
-                {
-                    Entry.Placeholder = Placeholder;
-                }
-            };
+                HiddenBottomBorder.LayoutTo(new Rectangle(BottomBorder.X, BottomBorder.Y, BottomBorder.Width, BottomBorder.Height));
+            }
+        }
+
+        private void Entry_Unfocused(object sender, FocusEventArgs e)
+        {
+            BottomBorder.HeightRequest = 1;
+            BottomBorder.BackgroundColor = Color.Gray;
+            if (string.IsNullOrEmpty(Entry.Text))
+            {
+                Task.WhenAll
+                (
+                    HiddenBottomBorder.LayoutTo(new Rectangle(BottomBorder.X, BottomBorder.Y, 0, BottomBorder.Height))
+                 );
+                Entry.Placeholder = Placeholder;
+            }
+            else
+            {
+                HiddenBottomBorder.LayoutTo(new Rectangle(BottomBorder.X, BottomBorder.Y, 0, BottomBorder.Height));
+            }
         }
 
         public enum ImageEntryAlignment

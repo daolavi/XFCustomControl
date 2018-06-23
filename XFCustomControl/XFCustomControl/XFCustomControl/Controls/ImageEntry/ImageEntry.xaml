@@ -13,10 +13,14 @@
                        WidthRequest="25"/>
 
                 <local:CustomEntry x:Name="Entry" 
-                                       PlaceholderColor="Red" 
-                                       Text="{Binding Text, Mode=TwoWay}" 
-                                       HorizontalOptions="FillAndExpand"/>
-                
+                                   HorizontalOptions="FillAndExpand" 
+                                   TextColor="{Binding TextColor}" 
+                                   PlaceholderColor="{Binding PlaceholderColor}"
+                                   Text="{Binding Text, Mode=TwoWay}"
+                                   TextChanged="Entry_TextChanged"
+                                   Focused="Entry_Focused"
+                                   Unfocused="Entry_Unfocused"/>
+
                 <local:CustomImage x:Name="RightImage" 
                        IsVisible="False" 
                        HorizontalOptions="End" 

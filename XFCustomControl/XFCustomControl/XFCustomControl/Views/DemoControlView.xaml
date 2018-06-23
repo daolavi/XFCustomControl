@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<app:ContentPageBase xmlns:app="clr-namespace:XFCustomControl" 
+             xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XFCustomControl.Views.DemoControlView"
+             xmlns:controls="clr-namespace:XFCustomControl.Controls"
+             Title="Demo Control">
+    <ContentPage.Content>
+        <StackLayout Padding="10">
+            <controls:CustomPicker Padding="30" 
+                                   ItemsSource="{Binding PickerItems}" 
+                                   ItemDisplayBinding="Name" 
+                                   LabelDisplay="DisplayName"
+                                   Title="Select Option" 
+                                   SelectedItem="{Binding SelectedItem}"
+                                   Placeholder="Tap to select item"
+                                   AccentColor="#FF4081"
+                                   DefaultColor="Blue"
+                                   LabelFontSize="20"
+                                   LabelTextColor="Green"/>
+
+            <Label Margin="30,5"  Text="{Binding SelectedItem.DisplayName}"/>
+
+            <controls:ImageEntry Padding="30" 
+                                 x:Name="SearchEntry" 
+                                 Text="{Binding SearchEntryDefaultText}" 
+                                 Placeholder="Placeholder" 
+                                 AccentColor="#FF4081" 
+                                 ImageAlignment="Both" 
+                                 LeftImageSource="ic_search" RightImageSource="ic_x" RightImageClicked="SearchEntry_RightImageClicked"/>
+        </StackLayout>
+    </ContentPage.Content>
+</app:ContentPageBase>
