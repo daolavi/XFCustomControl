@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using XFCustomControl.Controls;
+using XFCustomControl.Models;
 
 namespace XFCustomControl.ViewModels
 {
@@ -14,16 +15,16 @@ namespace XFCustomControl.ViewModels
             set => SetProperty(ref _searchEntryDefaultText, value);
         }
 
-        private List<CustomPickerItem> _pickerItems;
-        public List<CustomPickerItem> PickerItems
+        private List<PickerItem> _pickerItems;
+        public List<PickerItem> PickerItems
         {
             get => _pickerItems;
             set => SetProperty(ref _pickerItems,value);
         }
 
-        private CustomPickerItem _selectedItem;
+        private PickerItem _selectedItem;
 
-        public CustomPickerItem SelectedItem
+        public PickerItem SelectedItem
         {
             get => _selectedItem;
             set
@@ -36,14 +37,14 @@ namespace XFCustomControl.ViewModels
         {
             _searchEntryDefaultText = "Default value";
 
-            _pickerItems = new List<CustomPickerItem>
+            _pickerItems = new List<PickerItem>
             {
-                new CustomPickerItem
+                new PickerItem
                 {
                     Name = "Option 1",
                     DisplayName = "Displayname of opt1",
                 },
-                new CustomPickerItem
+                new PickerItem
                 {
                     Name = "Option 2",
                     DisplayName = "Displayname of opt2",
