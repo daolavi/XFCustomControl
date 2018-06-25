@@ -6,16 +6,17 @@
              xmlns:controls="clr-namespace:XFCustomControl.Controls"
              Title="Demo Control">
     <ContentPage.Content>
-        <StackLayout Padding="10">
+        <ScrollView>
+            <StackLayout>
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="48"/>
+                    <RowDefinition Height="24"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
-                <controls:CustomPicker Grid.Column="0" Padding="20,0,0,0"
+                <controls:CustomPicker Grid.Column="0"
                                    ItemsSource="{Binding PickerItems}" 
                                    ItemDisplayBinding="Name" 
                                    LabelDisplay="DisplayName"
@@ -24,27 +25,43 @@
                                    Placeholder="Tap to select item"
                                    AccentColor="#FF4081"
                                    DefaultColor="Blue"
-                                   LabelFontSize="20"
                                    LabelTextColor="Green"/>
                 <controls:SortSelector Grid.Column="1" SelectedSortType="{Binding SortType}" OnChanged="SortSelector_OnChanged"/>
             </Grid>
             
-            <Label Margin="30,5"  Text="{Binding SelectedItem.DisplayName}"/>
+            <Label Text="{Binding SelectedItem.DisplayName}"/>
             
-            <Label Margin="30,5"  x:Name="SortType"/>
+            <Label x:Name="SortType" />
 
-            <controls:ImageEntry Padding="30,5" 
-                                 x:Name="SearchEntry" 
+            <controls:ImageEntry x:Name="SearchEntry" 
                                  Text="{Binding SearchEntryDefaultText}" 
                                  Placeholder="Placeholder" 
                                  AccentColor="#FF4081" 
                                  ImageAlignment="Both" 
                                  LeftImageSource="ic_search" RightImageSource="ic_x" RightImageClicked="SearchEntry_RightImageClicked"/>
+
+            <controls:BindableRadioGroup x:Name="RadioGroup" 
+                                         ItemsSource="{Binding Path = RadioGroup.Values}" 
+                                         SelectedIndex="{Binding SelectedIndex}" 
+                                         VerticalOptions="Start" 
+                                         CheckedChanged="RadioGroup_CheckedChanged"
+                                         LayoutDirection="RTL"
+                                         SeparatorVisibility="True"
+                                         SeparatorColor="Blue"
+                                         RadioButtonHeightRequest="20"
+                                         />
+
+            <Label Text="{Binding SelectedRadioButton}"/>
+
+            <Button Text="No Text All Caps"/>
+
             <ListView RefreshCommand="{Binding RefreshCommand}" 
                       IsRefreshing="{Binding IsListViewRefreshing, Mode=OneWay}"
                       ItemsSource="{Binding ListViewItems}" 
                       IsPullToRefreshEnabled="True"
-                      ItemSelected="OnSelection">
+                      ItemSelected="OnSelection"
+                      HasUnevenRows="True"
+                      SeparatorVisibility="None">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
@@ -52,13 +69,19 @@
                                 <MenuItem Clicked="OnMore" Text="More" CommandParameter="{Binding .}" />
                                 <MenuItem Clicked="OnDelete" Text="Delete" IsDestructive="true" CommandParameter="{Binding .}" />
                             </ViewCell.ContextActions>
-                            <StackLayout Padding="15,0">
-                                <Label Text="{Binding .}" />
-                            </StackLayout>
+                            <Frame HasShadow="True" Padding="8" Margin="8,6,8,6">
+                                <Frame.Content>
+                                    <StackLayout Orientation="Vertical">
+                                        <Label Text="{Binding .}"/>
+                                    </StackLayout>
+                                </Frame.Content>
+                            </Frame>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+            
         </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </app:ContentPageBase>

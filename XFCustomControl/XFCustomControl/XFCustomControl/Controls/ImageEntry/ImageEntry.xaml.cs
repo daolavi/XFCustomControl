@@ -228,37 +228,12 @@ namespace XFCustomControl.Controls
         {
             BottomBorder.HeightRequest = 1.5;
             BottomBorder.BackgroundColor = AccentColor;
-            HiddenBottomBorder.BackgroundColor = AccentColor;
-            if (string.IsNullOrEmpty(Entry.Text))
-            {
-                Task.WhenAll
-                (
-                    HiddenBottomBorder.LayoutTo(new Rectangle(BottomBorder.X, BottomBorder.Y, BottomBorder.Width, BottomBorder.Height))
-                );
-                Entry.Placeholder = null;
-            }
-            else
-            {
-                HiddenBottomBorder.LayoutTo(new Rectangle(BottomBorder.X, BottomBorder.Y, BottomBorder.Width, BottomBorder.Height));
-            }
         }
 
         private void Entry_Unfocused(object sender, FocusEventArgs e)
         {
             BottomBorder.HeightRequest = 1;
             BottomBorder.BackgroundColor = Color.Gray;
-            if (string.IsNullOrEmpty(Entry.Text))
-            {
-                Task.WhenAll
-                (
-                    HiddenBottomBorder.LayoutTo(new Rectangle(BottomBorder.X, BottomBorder.Y, 0, BottomBorder.Height))
-                 );
-                Entry.Placeholder = Placeholder;
-            }
-            else
-            {
-                HiddenBottomBorder.LayoutTo(new Rectangle(BottomBorder.X, BottomBorder.Y, 0, BottomBorder.Height));
-            }
         }
 
         public enum ImageEntryAlignment

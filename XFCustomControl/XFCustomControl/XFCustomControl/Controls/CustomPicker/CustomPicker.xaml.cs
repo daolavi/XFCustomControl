@@ -151,7 +151,6 @@ namespace XFCustomControl.Controls
             PickerList.BindingContext = this;
             PickerLabel.BindingContext = this;
             BottomBorder.BindingContext = this;
-            HiddenBottomBorder.BindingContext = this;
         }
 
         private void Label_TapGestureRecognizer_Tapped(object sender, EventArgs e)
@@ -168,15 +167,12 @@ namespace XFCustomControl.Controls
         {
             BottomBorder.HeightRequest = 1.5;
             BottomBorder.BackgroundColor = AccentColor;
-            HiddenBottomBorder.BackgroundColor = AccentColor;
-            HiddenBottomBorder.LayoutTo(new Rectangle(BottomBorder.X, BottomBorder.Y, BottomBorder.Width, BottomBorder.Height));
         }
 
         private void PickerList_Unfocused(object sender, FocusEventArgs e)
         {
             BottomBorder.HeightRequest = 1;
             BottomBorder.BackgroundColor = DefaultColor;
-            HiddenBottomBorder.LayoutTo(new Rectangle(BottomBorder.X, BottomBorder.Y, 0, BottomBorder.Height));
         }
     }
 }

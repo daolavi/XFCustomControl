@@ -1,7 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using Xamarin.Forms;
-using XFCustomControl.Models;
+using XFCustomControl.Controls;
 
 namespace XFCustomControl.Views
 {
@@ -26,12 +25,11 @@ namespace XFCustomControl.Views
         {
             if (e.SelectedItem == null)
             {
-                return; //ItemSelected is called on deselection, which results in SelectedItem being set to null
+                return; 
             }
             DisplayAlert("Item Selected", e.SelectedItem.ToString(), "Ok");
-            //comment out if you want to keep selections
-            ListView lst = (ListView)sender;
-            lst.SelectedItem = null;
+            var list = (ListView)sender;
+            list.SelectedItem = null;
         }
 
         public void OnMore(object sender, EventArgs e)
@@ -44,6 +42,11 @@ namespace XFCustomControl.Views
         {
             var mi = ((MenuItem)sender);
             DisplayAlert("Delete Context Action", mi.CommandParameter + " delete context action", "OK");
+        }
+
+        private void RadioGroup_CheckedChanged(object sender, int e)
+        {
+            Console.WriteLine("RadioGroup_CheckedChanged");
         }
     }
 }

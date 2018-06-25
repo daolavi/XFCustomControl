@@ -66,6 +66,32 @@ namespace XFCustomControl.ViewModels
             get => _listViewItems;
             set => SetProperty(ref _listViewItems, value);
         }
+
+        private Dictionary<int, string> _radioGroup;
+        public Dictionary<int, string> RadioGroup
+        {
+            get => _radioGroup;
+            set => SetProperty(ref _radioGroup, value);
+        }
+
+        private int _selectedIndex;
+        public int SelectedIndex
+        {
+            get => _selectedIndex;
+            set
+            {
+                SetProperty(ref _selectedIndex, value);
+                SelectedRadioButton = _radioGroup[_selectedIndex];
+            }
+        }
+
+        private string _selectedRadioButton;
+        public string SelectedRadioButton
+        {
+            get => _selectedRadioButton;
+            set => SetProperty(ref _selectedRadioButton, value);
+        }
+
         public DemoControlViewModel(INavigationService navigationService)
         {
             _searchEntryDefaultText = "Default value";
@@ -87,8 +113,15 @@ namespace XFCustomControl.ViewModels
             _sortType = SortType.Descending;
             _listViewItems = new List<string>
             {
-                "Item1","Item2","Item3","Item4","Item5","Item6","Item7","Item8","Item1","Item2","Item3","Item4","Item5","Item6","Item7","Item8",
+                "Item1","Item2","Item3","Item4","Item5","Item6","Item7","Item8",
             };
+
+            _radioGroup = new Dictionary<int, string>();
+            for (int i = 0; i < 3; i++)
+            {
+                _radioGroup.Add(i, "Option " + i);
+            }
+            _selectedIndex = 1;
         }
     }
 }

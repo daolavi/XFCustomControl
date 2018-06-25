@@ -58,6 +58,8 @@
   <ItemGroup>
     <Compile Include="MainActivity.cs" />
     <Compile Include="Renderer\ImageEntryRenderer.cs" />
+    <Compile Include="Renderer\ListViewRenderder.cs" />
+    <Compile Include="Renderer\RadioButtonRenderer.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
