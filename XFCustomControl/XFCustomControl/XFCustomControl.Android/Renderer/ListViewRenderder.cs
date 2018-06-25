@@ -1,10 +1,9 @@
 ﻿using Android.Content;
-using Android.Widget;
 using XFCustomControl.Droid.Renderer;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 
-[assembly: ExportRenderer(typeof(Xamarin.Forms.ListView), typeof(ListViewRenderder))]
+[assembly: ExportRenderer(typeof(ListView), typeof(ListViewRenderder))]
 namespace XFCustomControl.Droid.Renderer
 {
     public class ListViewRenderder : ListViewRenderer
@@ -13,13 +12,13 @@ namespace XFCustomControl.Droid.Renderer
         {
         }
 
-        protected override void OnElementChanged(ElementChangedEventArgs<Xamarin.Forms.ListView> e)
+        protected override void OnElementChanged(ElementChangedEventArgs<ListView> e)
         {
             base.OnElementChanged(e);
 
             if (e.NewElement != null)
             {
-                var listView = this.Control as Android.Widget.ListView;
+                var listView = Control as Android.Widget.ListView;
                 listView.NestedScrollingEnabled = true;
             }
         }
