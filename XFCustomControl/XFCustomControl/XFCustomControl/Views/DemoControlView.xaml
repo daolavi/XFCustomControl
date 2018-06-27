@@ -4,7 +4,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="XFCustomControl.Views.DemoControlView"
              xmlns:controls="clr-namespace:XFCustomControl.Controls"
-             Title="Demo Control">
+             Title="Very long long long long long long long long long title">
+    <app:ContentPageBase.ToolbarItems>
+        <ToolbarItem Name="MenuItem1" Order="Primary" Text="Item 1" Priority="0" />
+        <ToolbarItem Name="MenuItem2" Order="Primary" Text="Item 2" Priority="1" />
+    </app:ContentPageBase.ToolbarItems>
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
