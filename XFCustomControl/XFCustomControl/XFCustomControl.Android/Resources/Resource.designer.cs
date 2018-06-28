@@ -3422,44 +3422,44 @@ namespace XFCustomControl.Droid
 		public partial class Color
 		{
 			
-			// aapt resource value: 0x7f0d0059
-			public const int abc_background_cache_hint_selector_material_dark = 2131558489;
-			
-			// aapt resource value: 0x7f0d005a
-			public const int abc_background_cache_hint_selector_material_light = 2131558490;
-			
-			// aapt resource value: 0x7f0d005b
-			public const int abc_btn_colored_borderless_text_material = 2131558491;
-			
-			// aapt resource value: 0x7f0d005c
-			public const int abc_btn_colored_text_material = 2131558492;
-			
-			// aapt resource value: 0x7f0d005d
-			public const int abc_color_highlight_material = 2131558493;
-			
 			// aapt resource value: 0x7f0d005e
-			public const int abc_hint_foreground_material_dark = 2131558494;
+			public const int abc_background_cache_hint_selector_material_dark = 2131558494;
 			
 			// aapt resource value: 0x7f0d005f
-			public const int abc_hint_foreground_material_light = 2131558495;
+			public const int abc_background_cache_hint_selector_material_light = 2131558495;
+			
+			// aapt resource value: 0x7f0d0060
+			public const int abc_btn_colored_borderless_text_material = 2131558496;
+			
+			// aapt resource value: 0x7f0d0061
+			public const int abc_btn_colored_text_material = 2131558497;
+			
+			// aapt resource value: 0x7f0d0062
+			public const int abc_color_highlight_material = 2131558498;
+			
+			// aapt resource value: 0x7f0d0063
+			public const int abc_hint_foreground_material_dark = 2131558499;
+			
+			// aapt resource value: 0x7f0d0064
+			public const int abc_hint_foreground_material_light = 2131558500;
 			
 			// aapt resource value: 0x7f0d0005
 			public const int abc_input_method_navigation_guard = 2131558405;
 			
-			// aapt resource value: 0x7f0d0060
-			public const int abc_primary_text_disable_only_material_dark = 2131558496;
+			// aapt resource value: 0x7f0d0065
+			public const int abc_primary_text_disable_only_material_dark = 2131558501;
 			
-			// aapt resource value: 0x7f0d0061
-			public const int abc_primary_text_disable_only_material_light = 2131558497;
+			// aapt resource value: 0x7f0d0066
+			public const int abc_primary_text_disable_only_material_light = 2131558502;
 			
-			// aapt resource value: 0x7f0d0062
-			public const int abc_primary_text_material_dark = 2131558498;
+			// aapt resource value: 0x7f0d0067
+			public const int abc_primary_text_material_dark = 2131558503;
 			
-			// aapt resource value: 0x7f0d0063
-			public const int abc_primary_text_material_light = 2131558499;
+			// aapt resource value: 0x7f0d0068
+			public const int abc_primary_text_material_light = 2131558504;
 			
-			// aapt resource value: 0x7f0d0064
-			public const int abc_search_url_text = 2131558500;
+			// aapt resource value: 0x7f0d0069
+			public const int abc_search_url_text = 2131558505;
 			
 			// aapt resource value: 0x7f0d0006
 			public const int abc_search_url_text_normal = 2131558406;
@@ -3470,32 +3470,35 @@ namespace XFCustomControl.Droid
 			// aapt resource value: 0x7f0d0008
 			public const int abc_search_url_text_selected = 2131558408;
 			
-			// aapt resource value: 0x7f0d0065
-			public const int abc_secondary_text_material_dark = 2131558501;
-			
-			// aapt resource value: 0x7f0d0066
-			public const int abc_secondary_text_material_light = 2131558502;
-			
-			// aapt resource value: 0x7f0d0067
-			public const int abc_tint_btn_checkable = 2131558503;
-			
-			// aapt resource value: 0x7f0d0068
-			public const int abc_tint_default = 2131558504;
-			
-			// aapt resource value: 0x7f0d0069
-			public const int abc_tint_edittext = 2131558505;
-			
 			// aapt resource value: 0x7f0d006a
-			public const int abc_tint_seek_thumb = 2131558506;
+			public const int abc_secondary_text_material_dark = 2131558506;
 			
 			// aapt resource value: 0x7f0d006b
-			public const int abc_tint_spinner = 2131558507;
+			public const int abc_secondary_text_material_light = 2131558507;
 			
 			// aapt resource value: 0x7f0d006c
-			public const int abc_tint_switch_thumb = 2131558508;
+			public const int abc_tint_btn_checkable = 2131558508;
 			
 			// aapt resource value: 0x7f0d006d
-			public const int abc_tint_switch_track = 2131558509;
+			public const int abc_tint_default = 2131558509;
+			
+			// aapt resource value: 0x7f0d006e
+			public const int abc_tint_edittext = 2131558510;
+			
+			// aapt resource value: 0x7f0d006f
+			public const int abc_tint_seek_thumb = 2131558511;
+			
+			// aapt resource value: 0x7f0d0070
+			public const int abc_tint_spinner = 2131558512;
+			
+			// aapt resource value: 0x7f0d0071
+			public const int abc_tint_switch_thumb = 2131558513;
+			
+			// aapt resource value: 0x7f0d0072
+			public const int abc_tint_switch_track = 2131558514;
+			
+			// aapt resource value: 0x7f0d005b
+			public const int accent = 2131558491;
 			
 			// aapt resource value: 0x7f0d0009
 			public const int accent_material_dark = 2131558409;
@@ -3514,6 +3517,9 @@ namespace XFCustomControl.Droid
 			
 			// aapt resource value: 0x7f0d000e
 			public const int background_material_light = 2131558414;
+			
+			// aapt resource value: 0x7f0d005d
+			public const int black = 2131558493;
 			
 			// aapt resource value: 0x7f0d000f
 			public const int bright_foreground_disabled_material_dark = 2131558415;
@@ -3560,6 +3566,9 @@ namespace XFCustomControl.Droid
 			// aapt resource value: 0x7f0d0057
 			public const int colorPrimaryDark = 2131558487;
 			
+			// aapt resource value: 0x7f0d005a
+			public const int dark_line_color = 2131558490;
+			
 			// aapt resource value: 0x7f0d0052
 			public const int default_circle_indicator_fill_color = 2131558482;
 			
@@ -3572,8 +3581,8 @@ namespace XFCustomControl.Droid
 			// aapt resource value: 0x7f0d003f
 			public const int design_bottom_navigation_shadow_color = 2131558463;
 			
-			// aapt resource value: 0x7f0d006e
-			public const int design_error = 2131558510;
+			// aapt resource value: 0x7f0d0073
+			public const int design_error = 2131558515;
 			
 			// aapt resource value: 0x7f0d0040
 			public const int design_fab_shadow_end_color = 2131558464;
@@ -3605,8 +3614,8 @@ namespace XFCustomControl.Droid
 			// aapt resource value: 0x7f0d0049
 			public const int design_textinput_error_color_light = 2131558473;
 			
-			// aapt resource value: 0x7f0d006f
-			public const int design_tint_password_toggle = 2131558511;
+			// aapt resource value: 0x7f0d0074
+			public const int design_tint_password_toggle = 2131558516;
 			
 			// aapt resource value: 0x7f0d0017
 			public const int dim_foreground_disabled_material_dark = 2131558423;
@@ -3625,6 +3634,9 @@ namespace XFCustomControl.Droid
 			
 			// aapt resource value: 0x7f0d001c
 			public const int foreground_material_light = 2131558428;
+			
+			// aapt resource value: 0x7f0d005c
+			public const int grey = 2131558492;
 			
 			// aapt resource value: 0x7f0d001d
 			public const int highlighted_text_material_dark = 2131558429;
@@ -3728,17 +3740,20 @@ namespace XFCustomControl.Droid
 			// aapt resource value: 0x7f0d003c
 			public const int switch_thumb_disabled_material_light = 2131558460;
 			
-			// aapt resource value: 0x7f0d0070
-			public const int switch_thumb_material_dark = 2131558512;
+			// aapt resource value: 0x7f0d0075
+			public const int switch_thumb_material_dark = 2131558517;
 			
-			// aapt resource value: 0x7f0d0071
-			public const int switch_thumb_material_light = 2131558513;
+			// aapt resource value: 0x7f0d0076
+			public const int switch_thumb_material_light = 2131558518;
 			
 			// aapt resource value: 0x7f0d003d
 			public const int switch_thumb_normal_material_dark = 2131558461;
 			
 			// aapt resource value: 0x7f0d003e
 			public const int switch_thumb_normal_material_light = 2131558462;
+			
+			// aapt resource value: 0x7f0d0059
+			public const int tab_background_color = 2131558489;
 			
 			// aapt resource value: 0x7f0d004a
 			public const int vpi__background_holo_dark = 2131558474;

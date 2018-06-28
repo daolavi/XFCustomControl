@@ -4,4 +4,9 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="tab_background_color">#EEEEEE</color>
+    <color name="dark_line_color">#CCCCCC</color>
+    <color name="accent">#00AABB</color>
+    <color name="grey">#808080</color>
+    <color name="black">#000000</color>
 </resources>

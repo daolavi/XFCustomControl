@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<app:ContentPageBase xmlns:app="clr-namespace:XFCustomControl" 
+             xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XFCustomControl.Views.DemoControl2View"
+             xmlns:controls="clr-namespace:XFCustomControl.Controls"
+             Title="Very long long long long long long long long long title">
+    <app:ContentPageBase.ToolbarItems>
+        <ToolbarItem Name="MenuItem1" Order="Primary" Text="Item 1" Priority="0" />
+        <ToolbarItem Name="MenuItem2" Order="Primary" Text="Item 2" Priority="1" />
+    </app:ContentPageBase.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout>
+            <controls:TabLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="White" SelectedTabIndex="{Binding SelectedTabIndex}">
+                <controls:TabLayout.Tabs>
+                    <x:Array Type="{x:Type controls:Tab}">
+                        <controls:Tab Text="Tab 1"></controls:Tab>
+                        <controls:Tab Text="Tab 2"></controls:Tab>
+                    </x:Array>
+                </controls:TabLayout.Tabs>
+                <controls:TabLayout.ItemsSource>
+                    <StackLayout>
+                        <ListView ItemsSource="{Binding ItemSource1}" HasUnevenRows="true"  SeparatorVisibility="None" BackgroundColor="White">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <Frame HasShadow="True" Padding="8" Margin="8,6,8,6" BackgroundColor="Gray">
+                                            <Frame.Content>
+                                                <Label Text="{Binding .}" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                                            </Frame.Content>
+                                        </Frame>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </StackLayout>
+                    <StackLayout>
+                        <ListView ItemsSource="{Binding ItemSource2}" HasUnevenRows="true"  SeparatorVisibility="None" BackgroundColor="White">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <Frame HasShadow="True" Padding="8" Margin="8,6,8,6" BackgroundColor="Gray">
+                                            <Frame.Content>
+                                                <Label Text="{Binding .}" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                                            </Frame.Content>
+                                        </Frame>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </StackLayout>
+                </controls:TabLayout.ItemsSource>
+            </controls:TabLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</app:ContentPageBase>

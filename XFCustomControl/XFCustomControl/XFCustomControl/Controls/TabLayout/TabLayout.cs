@@ -8,10 +8,34 @@ namespace XFCustomControl.Controls
 {
     public class TabLayout : StackLayout
     {
-        private TabView _tabView;
-        private CarouselViewControl _carouselView;
+        protected TabView _tabView;
+
+        protected CarouselViewControl _carouselView;
 
         public event TabSelectionChangedEventHandler TabSelectionChanged;
+
+        public static BindableProperty SelectedTabIndexProperty = BindableProperty.Create(nameof(SelectedTabIndex),
+                                                                typeof(int),
+                                                                typeof(TabLayout),
+                                                                defaultValue: 0,
+                                                                defaultBindingMode: BindingMode.TwoWay,
+                                                                propertyChanged: (bindable, oldVal, newval) =>
+                                                                {
+                                                                    var tabLayout = (TabLayout)bindable;
+                                                                    var intOldVal = (int)oldVal;
+                                                                    var intNewVal = (int)newval;
+                                                                    if (intOldVal != intNewVal)
+                                                                    {
+                                                                        tabLayout._tabView.SelectedIndex = intNewVal;
+                                                                        tabLayout.TabSelectionChanged?.Invoke(tabLayout, new TabSelectionChangedEventArgs() { Position = intNewVal });
+                                                                    }
+                                                                });
+        public int SelectedTabIndex
+        {
+            get => (int)GetValue(SelectedTabIndexProperty);
+            set => SetValue(SelectedTabIndexProperty, value);
+        }
+
 
         public TabLayout()
         {
@@ -50,6 +74,7 @@ namespace XFCustomControl.Controls
         private void CarouselView_PositionSelected(object sender, PositionSelectedEventArgs e)
         {
             _tabView.SelectedIndex = e.NewValue;
+            SelectedTabIndex = _tabView.SelectedIndex;
             TabSelectionChanged?.Invoke(this, new TabSelectionChangedEventArgs() { Position = e.NewValue });
         }
 

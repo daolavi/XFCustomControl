@@ -44,7 +44,7 @@ namespace XFCustomControl.ViewModels
             set => SetProperty(ref _sortType, value);
         }
 
-        public ICommand RefreshCommand => new Command(async () =>
+        public ICommand RefreshCommand => new Command(() =>
                                                         {
                                                             IsListViewRefreshing = true;
 
@@ -92,6 +92,8 @@ namespace XFCustomControl.ViewModels
             set => SetProperty(ref _selectedRadioButton, value);
         }
 
+        public DelegateCommand NextScreenCommand { get; set; }
+
         public DemoControlViewModel(INavigationService navigationService)
         {
             _searchEntryDefaultText = "Default value";
@@ -122,6 +124,11 @@ namespace XFCustomControl.ViewModels
                 _radioGroup.Add(i, "Option " + i);
             }
             _selectedIndex = 1;
+
+            NextScreenCommand = new DelegateCommand(async () =>
+            {
+                await navigationService.NavigateAsync("DemoControl2View");
+            });
         }
     }
 }

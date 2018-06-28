@@ -28,6 +28,7 @@ namespace XFCustomControl
             containerRegistry.RegisterForNavigation<NavigationPage>();
 
             containerRegistry.RegisterForNavigation<DemoControlView, DemoControlViewModel>();
+            containerRegistry.RegisterForNavigation<DemoControl2View, DemoControl2ViewModel>();
         }
     }
 }

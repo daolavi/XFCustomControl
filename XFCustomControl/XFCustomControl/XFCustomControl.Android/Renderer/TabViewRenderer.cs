@@ -1,8 +1,16 @@
-﻿using Android.Content;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using Android.App;
+using Android.Content;
+using Android.OS;
+using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using TabLayout = Android.Support.Design.Widget.TabLayout;
 using Xamarin.Forms;
+using Android.Support.Design.Widget;
 using Xamarin.Forms.Platform.Android;
 using System.ComponentModel;
 using Android.Graphics.Drawables;
@@ -33,7 +41,7 @@ namespace XFCustomControl.Droid.Renderer
                 LinearLayout linearLayout = (LinearLayout)tabLayout.GetChildAt(0);
                 linearLayout.ShowDividers = ShowDividers.Middle;
                 GradientDrawable drawable = new GradientDrawable();
-                drawable.SetColor(Android.Resource.Color.DarkerGray);
+                drawable.SetColor(Resource.Color.dark_line_color);
                 drawable.SetSize(1, 1);
                 linearLayout.DividerPadding = 10;
                 linearLayout.SetDividerDrawable(drawable);
