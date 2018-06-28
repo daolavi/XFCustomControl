@@ -57,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MainActivity.cs" />
+    <Compile Include="Renderer\CustomNavigationPageRenderer.cs" />
     <Compile Include="Renderer\ImageEntryRenderer.cs" />
     <Compile Include="Renderer\ListViewRenderder.cs" />
     <Compile Include="Renderer\RadioButtonRenderer.cs" />

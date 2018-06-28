@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using XFCustomControl.Controls;
 
 namespace XFCustomControl.Views
 {
@@ -15,6 +16,6 @@ namespace XFCustomControl.Views
 		public DemoControl2View ()
 		{
 			InitializeComponent ();
-		}
+        }
 	}
 }

@@ -10,7 +10,7 @@
         <ToolbarItem Name="MenuItem2" Order="Primary" Text="Item 2" Priority="1" />
     </app:ContentPageBase.ToolbarItems>
     <ContentPage.Content>
-        <ScrollView>
+        <ScrollView Padding="10,0">
             <StackLayout>
             <Grid>
                 <Grid.RowDefinitions>
@@ -57,7 +57,7 @@
 
             <Label Text="{Binding SelectedRadioButton}"/>
 
-            <Button Text="Navigate to Demo Control 2" Command="{Binding NextScreenCommand}"/>
+            <Button Text="Navigate to Demo Control 2" Command="{Binding NextScreenCommand}" HorizontalOptions="CenterAndExpand" WidthRequest="300" BackgroundColor="LawnGreen"/>
 
             <ListView RefreshCommand="{Binding RefreshCommand}" 
                       IsRefreshing="{Binding IsListViewRefreshing, Mode=OneWay}"

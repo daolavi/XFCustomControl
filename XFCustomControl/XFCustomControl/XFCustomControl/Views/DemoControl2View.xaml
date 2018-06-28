@@ -4,7 +4,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="XFCustomControl.Views.DemoControl2View"
              xmlns:controls="clr-namespace:XFCustomControl.Controls"
-             Title="Very long long long long long long long long long title">
+             Title="Very long long long title"
+             Subtitle="Long long subtitle">
     <app:ContentPageBase.ToolbarItems>
         <ToolbarItem Name="MenuItem1" Order="Primary" Text="Item 1" Priority="0" />
         <ToolbarItem Name="MenuItem2" Order="Primary" Text="Item 2" Priority="1" />
@@ -20,21 +21,10 @@
                 </controls:TabLayout.Tabs>
                 <controls:TabLayout.ItemsSource>
                     <StackLayout>
-                        <ListView ItemsSource="{Binding ItemSource1}" HasUnevenRows="true"  SeparatorVisibility="None" BackgroundColor="White">
-                            <ListView.ItemTemplate>
-                                <DataTemplate>
-                                    <ViewCell>
-                                        <Frame HasShadow="True" Padding="8" Margin="8,6,8,6" BackgroundColor="Gray">
-                                            <Frame.Content>
-                                                <Label Text="{Binding .}" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
-                                            </Frame.Content>
-                                        </Frame>
-                                    </ViewCell>
-                                </DataTemplate>
-                            </ListView.ItemTemplate>
-                        </ListView>
+                        <Label Text="{Binding SelectedTabIndex, StringFormat='SelectedTabIndex {0}'}"/>
                     </StackLayout>
                     <StackLayout>
+                        <Label Text="{Binding SelectedTabIndex, StringFormat='SelectedTabIndex {0}'}"/>
                         <ListView ItemsSource="{Binding ItemSource2}" HasUnevenRows="true"  SeparatorVisibility="None" BackgroundColor="White">
                             <ListView.ItemTemplate>
                                 <DataTemplate>

@@ -21,6 +21,13 @@ namespace XFCustomControl.ViewModels
             set => SetProperty(ref _itemSource2, value);
         }
 
+        private int _selectedTabIndex;
+        public int SelectedTabIndex
+        {
+            get => _selectedTabIndex;
+            set => SetProperty(ref _selectedTabIndex, value);
+        }
+
         public DemoControl2ViewModel(INavigationService navigationService)
         {
             ItemSource1 = new List<string>
