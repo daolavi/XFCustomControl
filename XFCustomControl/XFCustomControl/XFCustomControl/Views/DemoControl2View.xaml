@@ -4,12 +4,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="XFCustomControl.Views.DemoControl2View"
              xmlns:controls="clr-namespace:XFCustomControl.Controls"
+             xmlns:behavior="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
              Title="Very long long long title"
              Subtitle="Long long subtitle">
-    <app:ContentPageBase.ToolbarItems>
-        <ToolbarItem Name="MenuItem1" Order="Primary" Text="Item 1" Priority="0" />
-        <ToolbarItem Name="MenuItem2" Order="Primary" Text="Item 2" Priority="1" />
-    </app:ContentPageBase.ToolbarItems>
     <ContentPage.Content>
         <StackLayout>
             <controls:TabLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="White" SelectedTabIndex="{Binding SelectedTabIndex}">
@@ -25,7 +22,15 @@
                     </StackLayout>
                     <StackLayout>
                         <Label Text="{Binding SelectedTabIndex, StringFormat='SelectedTabIndex {0}'}"/>
+                        <Label Text="{Binding SelectedItem, StringFormat='SelectedItem {0}'}"/>
                         <ListView ItemsSource="{Binding ItemSource2}" HasUnevenRows="true"  SeparatorVisibility="None" BackgroundColor="White">
+                            <ListView.Behaviors>
+                                <behavior:EventToCommandBehavior 
+                                    EventName="ItemTapped"
+                                    Command="{Binding ItemTappedCommand}"
+                                    EventArgsParameterPath="Item">
+                                </behavior:EventToCommandBehavior>
+                            </ListView.Behaviors>
                             <ListView.ItemTemplate>
                                 <DataTemplate>
                                     <ViewCell>

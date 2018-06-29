@@ -2,10 +2,10 @@
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 using XFCustomControl.Controls;
-using XFCustomControl.Droid.Renderer;
+using XFCustomControl.Droid.Renderers;
 
 [assembly: ExportRenderer(typeof(CustomEntry), typeof(ImageEntryRenderer))]
-namespace XFCustomControl.Droid.Renderer
+namespace XFCustomControl.Droid.Renderers
 {
     public class ImageEntryRenderer : EntryRenderer
     {

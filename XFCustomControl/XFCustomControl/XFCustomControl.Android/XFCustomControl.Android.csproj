@@ -57,11 +57,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MainActivity.cs" />
-    <Compile Include="Renderer\CustomNavigationPageRenderer.cs" />
-    <Compile Include="Renderer\ImageEntryRenderer.cs" />
-    <Compile Include="Renderer\ListViewRenderder.cs" />
-    <Compile Include="Renderer\RadioButtonRenderer.cs" />
-    <Compile Include="Renderer\TabViewRenderer.cs" />
+    <Compile Include="Renderers\CustomButtonRenderer.cs" />
+    <Compile Include="Renderers\CustomNavigationPageRenderer.cs" />
+    <Compile Include="Renderers\ImageEntryRenderer.cs" />
+    <Compile Include="Renderers\ListViewRenderder.cs" />
+    <Compile Include="Renderers\RadioButtonRenderer.cs" />
+    <Compile Include="Renderers\TabViewRenderer.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -15,10 +15,10 @@ using Xamarin.Forms.Platform.Android;
 using System.ComponentModel;
 using Android.Graphics.Drawables;
 using XFCustomControl.Controls;
-using XFCustomControl.Droid.Renderer;
+using XFCustomControl.Droid.Renderers;
 
 [assembly: ExportRenderer(typeof(TabView), typeof(TabViewRenderer))]
-namespace XFCustomControl.Droid.Renderer
+namespace XFCustomControl.Droid.Renderers
 {
     public class TabViewRenderer : ViewRenderer<TabView, TabLayout>
     {
@@ -47,6 +47,7 @@ namespace XFCustomControl.Droid.Renderer
                 linearLayout.SetDividerDrawable(drawable);
 
                 tabLayout.TabSelected += TabLayout_TabSelected;
+                tabLayout.GetTabAt(e.NewElement.SelectedIndex).Select();
 
                 SetNativeControl(tabLayout);
             }

@@ -1,4 +1,5 @@
-﻿using Prism.Navigation;
+﻿using Prism.Commands;
+using Prism.Navigation;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -28,6 +29,15 @@ namespace XFCustomControl.ViewModels
             set => SetProperty(ref _selectedTabIndex, value);
         }
 
+        private string _selectedItem;
+        public string SelectedItem
+        {
+            get => _selectedItem;
+            set => SetProperty(ref _selectedItem, value);
+        }
+
+        public DelegateCommand<string> ItemTappedCommand { get; set; }
+
         public DemoControl2ViewModel(INavigationService navigationService)
         {
             ItemSource1 = new List<string>
@@ -38,6 +48,12 @@ namespace XFCustomControl.ViewModels
             {
                 "Item5","Item6","Item7","Item8",
             };
+            SelectedTabIndex = 1;
+
+            ItemTappedCommand = new DelegateCommand<string>(str =>
+            {
+                SelectedItem = str.ToUpper();
+            });
         }
     }
 }

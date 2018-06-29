@@ -17,10 +17,10 @@ using static Xamarin.Forms.Platform.Android.FontExtensions;
 using Android.Util;
 using Android.Support.V7.Widget;
 using XFCustomControl.Controls;
-using XFCustomControl.Droid.Renderer;
+using XFCustomControl.Droid.Renderers;
 
 [assembly: ExportRenderer(typeof(CustomNavigationPage), typeof(CustomNavigationPageRenderer))]
-namespace XFCustomControl.Droid.Renderer
+namespace XFCustomControl.Droid.Renderers
 {
     public class CustomNavigationPageRenderer : NavigationPageRenderer
     {

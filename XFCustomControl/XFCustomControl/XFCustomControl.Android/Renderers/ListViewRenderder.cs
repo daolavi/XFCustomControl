@@ -1,10 +1,10 @@
 ﻿using Android.Content;
-using XFCustomControl.Droid.Renderer;
+using XFCustomControl.Droid.Renderers;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 
 [assembly: ExportRenderer(typeof(ListView), typeof(ListViewRenderder))]
-namespace XFCustomControl.Droid.Renderer
+namespace XFCustomControl.Droid.Renderers
 {
     public class ListViewRenderder : ListViewRenderer
     {

@@ -57,7 +57,13 @@
 
             <Label Text="{Binding SelectedRadioButton}"/>
 
-            <Button Text="Navigate to Demo Control 2" Command="{Binding NextScreenCommand}" HorizontalOptions="CenterAndExpand" WidthRequest="300" BackgroundColor="LawnGreen"/>
+            <Button Text="Navigate to Demo Control 2" 
+                    Command="{Binding NextScreenCommand}" 
+                    HorizontalOptions="CenterAndExpand" 
+                    WidthRequest="300" 
+                    BackgroundColor="LawnGreen"
+                    BorderWidth="1"
+                    BorderRadius="10"/>
 
             <ListView RefreshCommand="{Binding RefreshCommand}" 
                       IsRefreshing="{Binding IsListViewRefreshing, Mode=OneWay}"
