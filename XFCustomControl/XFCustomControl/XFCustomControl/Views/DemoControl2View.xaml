@@ -17,8 +17,10 @@
                     </x:Array>
                 </controls:TabLayout.Tabs>
                 <controls:TabLayout.ItemsSource>
-                    <StackLayout>
+                    <StackLayout Padding="10,0">
                         <Label Text="{Binding SelectedTabIndex, StringFormat='SelectedTabIndex {0}'}"/>
+                        <controls:ToggleButton ImageSourceOff="ic_solid_down_arrow" ImageSourceOn="ic_solid_up_arrow" State="{Binding ToggleButtonState}" HeightRequest="24" WidthRequest="24"></controls:ToggleButton>
+                        <Label Text="{Binding ToggleButtonState, StringFormat='ToggleButtonState {0}'}"/>
                     </StackLayout>
                     <StackLayout>
                         <Label Text="{Binding SelectedTabIndex, StringFormat='SelectedTabIndex {0}'}"/>

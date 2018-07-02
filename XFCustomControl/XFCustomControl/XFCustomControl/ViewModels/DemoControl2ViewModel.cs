@@ -3,6 +3,7 @@ using Prism.Navigation;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using static XFCustomControl.Controls.ToggleButton;
 
 namespace XFCustomControl.ViewModels
 {
@@ -37,6 +38,13 @@ namespace XFCustomControl.ViewModels
         }
 
         public DelegateCommand<string> ItemTappedCommand { get; set; }
+
+        private ToggleButtonState _toggleButtonState;
+        public ToggleButtonState ToggleButtonState
+        {
+            get => _toggleButtonState;
+            set => SetProperty(ref _toggleButtonState, value);
+        }
 
         public DemoControl2ViewModel(INavigationService navigationService)
         {
