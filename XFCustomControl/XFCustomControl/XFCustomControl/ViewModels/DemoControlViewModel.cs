@@ -4,8 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Windows.Input;
 using Xamarin.Forms;
-using XFCustomControl.Controls;
-using XFCustomControl.Models;
+using static XFCustomControl.Controls.CustomPicker;
 using static XFCustomControl.Controls.SortSelector;
 
 namespace XFCustomControl.ViewModels

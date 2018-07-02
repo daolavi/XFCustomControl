@@ -174,5 +174,12 @@ namespace XFCustomControl.Controls
             BottomBorder.HeightRequest = 1;
             BottomBorder.BackgroundColor = DefaultColor;
         }
+
+        public class PickerItem
+        {
+            public string Name { get; set; }
+
+            public string DisplayName { get; set; }
+        }
     }
 }
