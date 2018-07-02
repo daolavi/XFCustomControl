@@ -43,7 +43,18 @@ namespace XFCustomControl.ViewModels
         public ToggleButtonState ToggleButtonState
         {
             get => _toggleButtonState;
-            set => SetProperty(ref _toggleButtonState, value);
+            set
+            {
+                SetProperty(ref _toggleButtonState, value);
+                IsExpanded = ToggleButtonState == ToggleButtonState.On ? true : false;
+            }
+        }
+
+        private bool _isExpanded;
+        public bool IsExpanded
+        {
+            get => _isExpanded;
+            set => SetProperty(ref _isExpanded, value);
         }
 
         public DemoControl2ViewModel(INavigationService navigationService)
