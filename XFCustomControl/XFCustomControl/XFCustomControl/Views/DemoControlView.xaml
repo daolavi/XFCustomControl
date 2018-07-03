@@ -4,94 +4,98 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="XFCustomControl.Views.DemoControlView"
              xmlns:controls="clr-namespace:XFCustomControl.Controls"
+             x:Name="DemoControl"
              Title="Demo Control 1">
     <app:ContentPageBase.ToolbarItems>
         <ToolbarItem Name="MenuItem1" Order="Primary" Text="Item 1" Priority="0" />
         <ToolbarItem Name="MenuItem2" Order="Primary" Text="Item 2" Priority="1" />
     </app:ContentPageBase.ToolbarItems>
     <ContentPage.Content>
-        <ScrollView Padding="10,0">
-            <StackLayout>
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="24"/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="Auto" />
-                </Grid.ColumnDefinitions>
-                <controls:CustomPicker Grid.Column="0"
-                                   ItemsSource="{Binding PickerItems}" 
-                                   ItemDisplayBinding="Name" 
-                                   LabelDisplay="DisplayName"
-                                   Title="Select Option" 
-                                   SelectedItem="{Binding SelectedItem}"
-                                   Placeholder="Tap to select item"
-                                   AccentColor="#FF4081"
-                                   DefaultColor="Blue"
-                                   LabelTextColor="Green"/>
-                <controls:SortSelector Grid.Column="1" SelectedSortType="{Binding SortType}" OnChanged="SortSelector_OnChanged"/>
-            </Grid>
+        <StackLayout>
+            <controls:CustomToolbar BackgroundColor="CadetBlue" Page="{Binding ., Source={x:Reference DemoControl}}"></controls:CustomToolbar>
+            <ScrollView Padding="10,0">
+                <StackLayout>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="24"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <controls:CustomPicker Grid.Column="0"
+                                       ItemsSource="{Binding PickerItems}" 
+                                       ItemDisplayBinding="Name" 
+                                       LabelDisplay="DisplayName"
+                                       Title="Select Option" 
+                                       SelectedItem="{Binding SelectedItem}"
+                                       Placeholder="Tap to select item"
+                                       AccentColor="#FF4081"
+                                       DefaultColor="Blue"
+                                       LabelTextColor="Green"/>
+                    <controls:SortSelector Grid.Column="1" SelectedSortType="{Binding SortType}" OnChanged="SortSelector_OnChanged"/>
+                </Grid>
             
-            <Label Text="{Binding SelectedItem.DisplayName}"/>
+                <Label Text="{Binding SelectedItem.DisplayName}"/>
             
-            <Label x:Name="SortType" />
+                <Label x:Name="SortType" />
 
-            <controls:ImageEntry x:Name="SearchEntry" 
-                                 Text="{Binding SearchEntryDefaultText}" 
-                                 Placeholder="Placeholder" 
-                                 AccentColor="#FF4081" 
-                                 ImageAlignment="Both" 
-                                 LeftImageSource="ic_search" RightImageSource="ic_x" RightImageClicked="SearchEntry_RightImageClicked"/>
+                <controls:ImageEntry x:Name="SearchEntry" 
+                                     Text="{Binding SearchEntryDefaultText}" 
+                                     Placeholder="Placeholder" 
+                                     AccentColor="#FF4081" 
+                                     ImageAlignment="Both" 
+                                     LeftImageSource="ic_search" RightImageSource="ic_x" RightImageClicked="SearchEntry_RightImageClicked"/>
 
-            <controls:BindableRadioGroup x:Name="RadioGroup" 
-                                         ItemsSource="{Binding Path = RadioGroup.Values}" 
-                                         SelectedIndex="{Binding SelectedIndex}" 
-                                         VerticalOptions="Start" 
-                                         CheckedChanged="RadioGroup_CheckedChanged"
-                                         LayoutDirection="RTL"
-                                         SeparatorVisibility="True"
-                                         SeparatorColor="Blue"
-                                         RadioButtonHeightRequest="20"
-                                         />
+                <controls:BindableRadioGroup x:Name="RadioGroup" 
+                                             ItemsSource="{Binding Path = RadioGroup.Values}" 
+                                             SelectedIndex="{Binding SelectedIndex}" 
+                                             VerticalOptions="Start" 
+                                             CheckedChanged="RadioGroup_CheckedChanged"
+                                             LayoutDirection="RTL"
+                                             SeparatorVisibility="True"
+                                             SeparatorColor="Blue"
+                                             RadioButtonHeightRequest="20"
+                                             />
 
-            <Label Text="{Binding SelectedRadioButton}"/>
+                <Label Text="{Binding SelectedRadioButton}"/>
 
-            <Button Text="Navigate to Demo Control 2" 
-                    Command="{Binding NextScreenCommand}" 
-                    HorizontalOptions="CenterAndExpand" 
-                    WidthRequest="300" 
-                    BackgroundColor="LawnGreen"
-                    BorderWidth="1"
-                    BorderRadius="10"/>
+                <Button Text="Navigate to Demo Control 2" 
+                        Command="{Binding NextScreenCommand}" 
+                        HorizontalOptions="CenterAndExpand" 
+                        WidthRequest="300" 
+                        BackgroundColor="LawnGreen"
+                        BorderWidth="1"
+                        BorderRadius="10"/>
 
-            <ListView RefreshCommand="{Binding RefreshCommand}" 
-                      IsRefreshing="{Binding IsListViewRefreshing, Mode=OneWay}"
-                      ItemsSource="{Binding ListViewItems}" 
-                      IsPullToRefreshEnabled="True"
-                      ItemSelected="OnSelection"
-                      HasUnevenRows="True"
-                      SeparatorVisibility="None">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <ViewCell.ContextActions>
-                                <MenuItem Clicked="OnMore" Text="More" CommandParameter="{Binding .}" />
-                                <MenuItem Clicked="OnDelete" Text="Delete" IsDestructive="true" CommandParameter="{Binding .}" />
-                            </ViewCell.ContextActions>
-                            <Frame HasShadow="True" Padding="8" Margin="8,6,8,6">
-                                <Frame.Content>
-                                    <StackLayout Orientation="Vertical">
-                                        <Label Text="{Binding .}"/>
-                                    </StackLayout>
-                                </Frame.Content>
-                            </Frame>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+                <ListView RefreshCommand="{Binding RefreshCommand}" 
+                          IsRefreshing="{Binding IsListViewRefreshing, Mode=OneWay}"
+                          ItemsSource="{Binding ListViewItems}" 
+                          IsPullToRefreshEnabled="True"
+                          ItemSelected="OnSelection"
+                          HasUnevenRows="True"
+                          SeparatorVisibility="None">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <ViewCell.ContextActions>
+                                    <MenuItem Clicked="OnMore" Text="More" CommandParameter="{Binding .}" />
+                                    <MenuItem Clicked="OnDelete" Text="Delete" IsDestructive="true" CommandParameter="{Binding .}" />
+                                </ViewCell.ContextActions>
+                                <Frame HasShadow="True" Padding="8" Margin="8,6,8,6">
+                                    <Frame.Content>
+                                        <StackLayout Orientation="Vertical">
+                                            <Label Text="{Binding .}"/>
+                                        </StackLayout>
+                                    </Frame.Content>
+                                </Frame>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
             
+            </StackLayout>
+            </ScrollView>
         </StackLayout>
-        </ScrollView>
     </ContentPage.Content>
 </app:ContentPageBase>

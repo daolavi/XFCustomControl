@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<app:ContentPageBase xmlns:app="clr-namespace:XFCustomControl" 
+             xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XFCustomControl.Views.DemoControl3View"
+             xmlns:controls="clr-namespace:XFCustomControl.Controls"
+             xmlns:behavior="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
+             x:Name="DemoControl3"
+             Title="Title"
+             Subtitle="Subtitle">
+    <ContentPage.Content>
+        <StackLayout>
+            <controls:CustomToolbar BackgroundColor="CadetBlue" Page="{Binding ., Source={x:Reference DemoControl3}}"></controls:CustomToolbar>
+            <StackLayout Orientation="Horizontal">
+                <controls:Checkbox State="{Binding IsTailTruncate}" WidthRequest="24" HeightRequest="24"></controls:Checkbox>
+                <Label Text="Tail Truncate"/>
+            </StackLayout>
+            <Label LineBreakMode="{Binding LineBreakMode}" Text="Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text"/>
+        </StackLayout>
+    </ContentPage.Content>
+</app:ContentPageBase>

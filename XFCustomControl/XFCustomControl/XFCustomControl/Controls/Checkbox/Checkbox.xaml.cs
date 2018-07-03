@@ -28,15 +28,15 @@ namespace XFCustomControl.Controls
         }
 
         public static BindableProperty StateProperty = BindableProperty.Create(nameof(State),
-                                                                typeof(CheckboxState),
+                                                                typeof(bool),
                                                                 typeof(Checkbox),
-                                                                defaultValue: CheckboxState.Unchecked,
+                                                                defaultValue: false,
                                                                 defaultBindingMode: BindingMode.TwoWay,
                                                                 propertyChanged: (bindable, oldVal, newval) =>
                                                                 {
                                                                     var checkBox = (Checkbox)bindable;
-                                                                    var state = (CheckboxState)newval;
-                                                                    if (state == CheckboxState.Unchecked)
+                                                                    var state = (bool)newval;
+                                                                    if (!state)
                                                                     {
                                                                         checkBox.ImageUnchecked.IsVisible = true;
                                                                         checkBox.ImageChecked.IsVisible = false;
@@ -48,16 +48,16 @@ namespace XFCustomControl.Controls
                                                                     }
                                                                 });
 
-        public CheckboxState State
+        public bool State
         {
-            get => (CheckboxState)GetValue(StateProperty);
+            get => (bool)GetValue(StateProperty);
             set => SetValue(StateProperty, value);
         }
 
         public Checkbox()
         {
             InitializeComponent();
-            State = CheckboxState.Unchecked;
+            State = false;
             ImageUnchecked.BindingContext = this;
             ImageChecked.BindingContext = this;
             ImageUnchecked.IsVisible = true;
@@ -66,18 +66,7 @@ namespace XFCustomControl.Controls
 
         private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
         {
-            State = State == CheckboxState.Unchecked ? CheckboxState.Checked : CheckboxState.Unchecked;
-        }
-
-        public enum CheckboxState
-        {
-            Unchecked,
-            Checked,
-        }
-
-        private void TapGestureRecognizer_Tapped_1(object sender, EventArgs e)
-        {
-
+            State = !State;
         }
     }
 }

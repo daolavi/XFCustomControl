@@ -126,7 +126,7 @@ namespace XFCustomControl.ViewModels
 
             NextScreenCommand = new DelegateCommand(async () =>
             {
-                await navigationService.NavigateAsync("DemoControl2View");
+                await navigationService.NavigateAsync("DemoControl3View");
             });
         }
     }

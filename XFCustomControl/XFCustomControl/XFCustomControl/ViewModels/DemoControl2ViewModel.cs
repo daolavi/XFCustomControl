@@ -2,8 +2,6 @@
 using Prism.Navigation;
 using System;
 using System.Collections.Generic;
-using System.Text;
-using static XFCustomControl.Controls.Checkbox;
 using static XFCustomControl.Controls.ToggleButton;
 
 namespace XFCustomControl.ViewModels
@@ -58,8 +56,8 @@ namespace XFCustomControl.ViewModels
             set => SetProperty(ref _isExpanded, value);
         }
 
-        private CheckboxState _checkboxState;
-        public CheckboxState CheckboxState
+        private bool _checkboxState;
+        public bool CheckboxState
         {
             get => _checkboxState;
             set

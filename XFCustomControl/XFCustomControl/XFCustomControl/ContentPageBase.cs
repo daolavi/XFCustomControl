@@ -1,5 +1,6 @@
 ﻿using System;
 using Xamarin.Forms;
+using XFCustomControl.Controls;
 
 namespace XFCustomControl
 {
@@ -28,7 +29,6 @@ namespace XFCustomControl
         }
 
         public static readonly BindableProperty SubtitleProperty = BindableProperty.Create(nameof(Subtitle), typeof(string), typeof(ContentPageBase), null);
-
 
         public string Subtitle
         {
