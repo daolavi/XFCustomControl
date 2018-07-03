@@ -35,6 +35,8 @@
                             </controls:ExpandableView.ExpandableViewSource>
                         </controls:ExpandableView>
                         <Label Text="Out of Expandable View"/>
+                        <controls:Checkbox State="{Binding CheckboxState}" HeightRequest="24" WidthRequest="24"></controls:Checkbox>
+                        <Label Text="{Binding CheckboxState, StringFormat='CheckboxState {0}'}"/>
                     </StackLayout>
                     <StackLayout>
                         <Label Text="{Binding SelectedTabIndex, StringFormat='SelectedTabIndex {0}'}"/>

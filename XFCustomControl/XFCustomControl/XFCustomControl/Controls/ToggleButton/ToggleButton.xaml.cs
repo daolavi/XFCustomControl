@@ -69,15 +69,15 @@ namespace XFCustomControl.Controls
             ImageOn.IsVisible = false;
         }
 
+        private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+        {
+            State = State == ToggleButtonState.Off ? ToggleButtonState.On : ToggleButtonState.Off;
+        }
+
         public enum ToggleButtonState
         {
             Off,
             On,
-        }
-
-        private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
-        {
-            State = State == ToggleButtonState.Off ? ToggleButtonState.On : ToggleButtonState.Off;
         }
     }
 }
