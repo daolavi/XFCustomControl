@@ -13,11 +13,13 @@
             <controls:CustomToolbar BackgroundColor="CadetBlue" 
                                     Page="{Binding ., Source={x:Reference DemoControl3}}" 
                                     HasBackButton="True"
-                                    Title="Demo Control 3"
-                                    Subtitle="The third page">
+                                    Title="Demo Control 3">
                 <controls:CustomToolbar.ToolbarItems>
-                    <controls:ToggleButton VerticalOptions="Center" ImageSourceOn="ic_solid_down_arrow" ImageSourceOff="ic_solid_up_arrow" WidthRequest="16" HeightRequest="16"/>
-                    <Label VerticalOptions="Center" Text="Find product" TextColor="White"></Label>
+                    <controls:ToggleButton VerticalOptions="Center" 
+                                           ImageSourceOn="ic_solid_down_arrow" 
+                                           ImageSourceOff="ic_solid_up_arrow" 
+                                           WidthImageRequest="16" HeightImageRequest="16"
+                                           Text="Find product" TextColor="White"/>
                 </controls:CustomToolbar.ToolbarItems>
             </controls:CustomToolbar>
             <StackLayout Orientation="Horizontal">

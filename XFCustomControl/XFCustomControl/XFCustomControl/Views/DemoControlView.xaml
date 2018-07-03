@@ -15,9 +15,11 @@
             <controls:CustomToolbar Page="{Binding ., Source={x:Reference DemoControl}}" 
                                     BackgroundColor="CadetBlue"  
                                     HasBackButton="False"
-                                    Title="Demo Control 1"
-                                    TextColor="Green"
-                                    ></controls:CustomToolbar>
+                                    Title="Demo Control 1 Demo Control 1 Demo Control 1 Demo Control 1 "
+                                    Subtitle="Demo Control 1 Demo Control 1 Demo Control 1"
+                                    TextColor="Green">
+            </controls:CustomToolbar>
+            
             <ScrollView Padding="10,0">
                 <StackLayout>
                 <Grid>
@@ -101,6 +103,7 @@
             
             </StackLayout>
             </ScrollView>
+            
         </StackLayout>
     </ContentPage.Content>
 </app:ContentPageBase>

@@ -9,17 +9,23 @@
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
-            <Image x:Name="ImageOff" Grid.Column="0" Grid.Row="0" Source="{Binding ImageSourceOff}" IsVisible="True">
+            <Image x:Name="ImageOff" Grid.Column="0" Grid.Row="0" Source="{Binding ImageSourceOff}" WidthRequest="{Binding WidthImageRequest}" HeightRequest="{Binding HeightImageRequest}" IsVisible="True">
                 <Image.GestureRecognizers>
                     <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
                 </Image.GestureRecognizers>
             </Image>
-            <Image x:Name="ImageOn" Grid.Column="0" Grid.Row="0" Source="{Binding ImageSourceOn}" IsVisible="False">
+            <Image x:Name="ImageOn" Grid.Column="0" Grid.Row="0" Source="{Binding ImageSourceOn}" WidthRequest="{Binding WidthImageRequest}" HeightRequest="{Binding HeightImageRequest}" IsVisible="False">
                 <Image.GestureRecognizers>
                     <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
                 </Image.GestureRecognizers>
             </Image>
+            <Label x:Name="Label" Text="{Binding Text}" TextColor="{Binding TextColor}" FontSize="{Binding FontSize}" Grid.Column="1" Grid.Row="0" IsVisible="False">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                </Label.GestureRecognizers>
+            </Label>
         </Grid>
     </ContentView.Content>
 </ContentView>

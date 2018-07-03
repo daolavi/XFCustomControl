@@ -5,10 +5,17 @@
              x:Class="XFCustomControl.Views.DemoControl2View"
              xmlns:controls="clr-namespace:XFCustomControl.Controls"
              xmlns:behavior="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
+             x:Name="DemoControl2"
              Title="Very long long long title"
              Subtitle="Long long subtitle">
     <ContentPage.Content>
         <StackLayout>
+            <controls:CustomToolbar BackgroundColor="CadetBlue" 
+                                    Page="{Binding ., Source={x:Reference DemoControl2}}" 
+                                    HasBackButton="True"
+                                    Title="Demo Control 2 Demo Control 2 Demo Control 2 Demo Control 2 Demo Control 2"
+                                    TextColor="Green">
+            </controls:CustomToolbar>
             <controls:TabLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="White" SelectedTabIndex="{Binding SelectedTabIndex}">
                 <controls:TabLayout.Tabs>
                     <x:Array Type="{x:Type controls:Tab}">

@@ -3,14 +3,14 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="XFCustomControl.Controls.CustomToolbar">
   <ContentView.Content>
-        <StackLayout x:Name="MainLayout" Orientation="Horizontal" HeightRequest="46" Padding="15,5,10,5">
-            <Image x:Name="ButtonBack" IsVisible="{Binding HasBackButton}" Source="ic_arrow_back__light" HeightRequest="16" WidthRequest="16" Margin="5,0,25,0">
+        <StackLayout x:Name="LayoutToolbarItem" Orientation="Horizontal" VerticalOptions="StartAndExpand" MinimumHeightRequest="48" Padding="0,5,5,5">
+            <Image x:Name="ButtonBack" IsVisible="{Binding HasBackButton}" Source="ic_arrow_back__light">
                 <Image.GestureRecognizers>
                     <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
                 </Image.GestureRecognizers>
             </Image>
-            <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
-                <Label x:Name="LabelTitle" Text="{Binding Title}" LineBreakMode="WordWrap" FontSize="Medium"  HorizontalOptions="FillAndExpand" TextColor="{Binding TextColor}"/>
+            <StackLayout x:Name="TitleLayout" Orientation="Vertical" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" Padding="15,0,15,0">
+                <Label x:Name="LabelTitle" Text="{Binding Title}" LineBreakMode="WordWrap" FontSize="Medium" HorizontalOptions="FillAndExpand" TextColor="{Binding TextColor}"/>
                 <Label x:Name="LabelSubtitle" Text="{Binding Subtitle}" LineBreakMode="WordWrap" IsVisible="False" Margin="0,-8" FontSize="Small" HorizontalOptions="FillAndExpand" TextColor="{Binding TextColor}"/>
             </StackLayout>
         </StackLayout>

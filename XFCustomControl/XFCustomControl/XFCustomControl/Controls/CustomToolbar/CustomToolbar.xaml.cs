@@ -62,6 +62,9 @@ namespace XFCustomControl.Controls
                                                                                 var customToolbar = (CustomToolbar)bindable;
                                                                                 var value = (string)newval;
                                                                                 customToolbar.LabelSubtitle.IsVisible = !string.IsNullOrEmpty(value);
+                                                                                customToolbar.TitleLayout.Padding = !string.IsNullOrEmpty(value) ?
+                                                                                                                        new Thickness(15, 0, 15, 8) :
+                                                                                                                        new Thickness(15, 0, 15, 0);
                                                                             });
 
         public string Subtitle
@@ -98,7 +101,7 @@ namespace XFCustomControl.Controls
         private void ToolbarItems_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
         {
             var view = e.NewItems[0] as View;
-            MainLayout.Children.Add(view);
+            LayoutToolbarItem.Children.Add(view);
         }
 
         private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
