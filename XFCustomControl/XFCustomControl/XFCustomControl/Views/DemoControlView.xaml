@@ -12,7 +12,12 @@
     </app:ContentPageBase.ToolbarItems>
     <ContentPage.Content>
         <StackLayout>
-            <controls:CustomToolbar BackgroundColor="CadetBlue" Page="{Binding ., Source={x:Reference DemoControl}}"></controls:CustomToolbar>
+            <controls:CustomToolbar Page="{Binding ., Source={x:Reference DemoControl}}" 
+                                    BackgroundColor="CadetBlue"  
+                                    HasBackButton="False"
+                                    Title="Demo Control 1"
+                                    TextColor="Green"
+                                    ></controls:CustomToolbar>
             <ScrollView Padding="10,0">
                 <StackLayout>
                 <Grid>

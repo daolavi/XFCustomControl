@@ -6,16 +6,26 @@
              xmlns:controls="clr-namespace:XFCustomControl.Controls"
              xmlns:behavior="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
              x:Name="DemoControl3"
-             Title="Title"
-             Subtitle="Subtitle">
+             NavigationPage.HasNavigationBar="False"
+             >
     <ContentPage.Content>
         <StackLayout>
-            <controls:CustomToolbar BackgroundColor="CadetBlue" Page="{Binding ., Source={x:Reference DemoControl3}}"></controls:CustomToolbar>
+            <controls:CustomToolbar BackgroundColor="CadetBlue" 
+                                    Page="{Binding ., Source={x:Reference DemoControl3}}" 
+                                    HasBackButton="True"
+                                    Title="Demo Control 3"
+                                    Subtitle="The third page">
+                <controls:CustomToolbar.ToolbarItems>
+                    <controls:ToggleButton VerticalOptions="Center" ImageSourceOn="ic_solid_down_arrow" ImageSourceOff="ic_solid_up_arrow" WidthRequest="16" HeightRequest="16"/>
+                    <Label VerticalOptions="Center" Text="Find product" TextColor="White"></Label>
+                </controls:CustomToolbar.ToolbarItems>
+            </controls:CustomToolbar>
             <StackLayout Orientation="Horizontal">
                 <controls:Checkbox State="{Binding IsTailTruncate}" WidthRequest="24" HeightRequest="24"></controls:Checkbox>
                 <Label Text="Tail Truncate"/>
             </StackLayout>
             <Label LineBreakMode="{Binding LineBreakMode}" Text="Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text"/>
+            <Label Text="End Line"/>
         </StackLayout>
     </ContentPage.Content>
 </app:ContentPageBase>

@@ -37,6 +37,13 @@
                         <Label Text="Out of Expandable View"/>
                         <controls:Checkbox State="{Binding CheckboxState}" HeightRequest="24" WidthRequest="24"></controls:Checkbox>
                         <Label Text="{Binding CheckboxState, StringFormat='CheckboxState {0}'}"/>
+                        <Button Text="Navigate to Demo Control 3" 
+                                Command="{Binding NextScreenCommand}" 
+                                HorizontalOptions="CenterAndExpand" 
+                                WidthRequest="300" 
+                                BackgroundColor="LawnGreen"
+                                BorderWidth="1"
+                                BorderRadius="10"/>
                     </StackLayout>
                     <StackLayout>
                         <Label Text="{Binding SelectedTabIndex, StringFormat='SelectedTabIndex {0}'}"/>

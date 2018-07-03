@@ -66,6 +66,8 @@ namespace XFCustomControl.ViewModels
             }
         }
 
+        public DelegateCommand NextScreenCommand { get; set; }
+
         public DemoControl2ViewModel(INavigationService navigationService)
         {
             ItemSource1 = new List<string>
@@ -81,6 +83,11 @@ namespace XFCustomControl.ViewModels
             ItemTappedCommand = new DelegateCommand<string>(str =>
             {
                 SelectedItem = str.ToUpper();
+            });
+
+            NextScreenCommand = new DelegateCommand(async () =>
+            {
+                await navigationService.NavigateAsync("DemoControl3View");
             });
         }
     }
