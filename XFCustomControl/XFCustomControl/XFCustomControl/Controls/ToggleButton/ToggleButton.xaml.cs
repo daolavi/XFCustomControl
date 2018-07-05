@@ -10,8 +10,8 @@ using Xamarin.Forms.Xaml;
 namespace XFCustomControl.Controls
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class ToggleButton : ContentView
-	{
+    public partial class ToggleButton : ContentView
+    {
         public static BindableProperty ImageSourceOffProperty = BindableProperty.Create(nameof(ImageSourceOff),
                                                                 typeof(string),
                                                                 typeof(ToggleButton),
@@ -51,6 +51,11 @@ namespace XFCustomControl.Controls
                                                                         toggleButton.ImageOff.IsVisible = false;
                                                                         toggleButton.ImageOn.IsVisible = true;
                                                                     }
+                                                                    var eventArgs = new ToggleButtonStateChangedEventArgs
+                                                                    {
+                                                                        State = state,
+                                                                    };
+                                                                    toggleButton.StateChanged?.Invoke(toggleButton, eventArgs);
                                                                 });
 
         public ToggleButtonState State
@@ -58,6 +63,8 @@ namespace XFCustomControl.Controls
             get => (ToggleButtonState)GetValue(StateProperty);
             set => SetValue(StateProperty, value);
         }
+
+        public event EventHandler StateChanged;
 
         public static readonly BindableProperty TextProperty = BindableProperty.Create(nameof(Text),
                                                                             typeof(string),
@@ -125,9 +132,9 @@ namespace XFCustomControl.Controls
             set => SetValue(HeightImageRequestProperty, value);
         }
 
-        public ToggleButton ()
-		{
-			InitializeComponent ();
+        public ToggleButton()
+        {
+            InitializeComponent();
             State = ToggleButtonState.Off;
             ImageOff.BindingContext = this;
             ImageOn.BindingContext = this;
@@ -146,6 +153,11 @@ namespace XFCustomControl.Controls
         {
             Off,
             On,
+        }
+
+        public class ToggleButtonStateChangedEventArgs : EventArgs
+        {
+            public ToggleButtonState State { get; set; }
         }
     }
 }

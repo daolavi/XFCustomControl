@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MWX.XamForms.Popup;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,6 +17,12 @@ namespace XFCustomControl.Views
         public DemoControl3View()
         {
             InitializeComponent();
+            new PopupPageInitializer(this) { CustomPopup };
+        }
+
+        private void BtnShowPopup_Clicked(object sender, EventArgs e)
+        {
+            CustomPopup.Show();
         }
     }
 }

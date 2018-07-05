@@ -28,6 +28,14 @@
             </StackLayout>
             <Label LineBreakMode="{Binding LineBreakMode}" Text="Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text"/>
             <Label Text="End Line"/>
+            <Button x:Name="BtnShowPopup" Text="Show Popup" Clicked="BtnShowPopup_Clicked"/>
+            <Label Text="{Binding DisplayNote, StringFormat='Saved Note : {0}'}"/>
+            <controls:CustomPopup x:Name="CustomPopup" 
+                                   MaxLength="1000" 
+                                   NoteHeader="Header"
+                                   Note="{Binding Note}"
+                                   Placeholder="Add Notes"
+                                   SaveCommand="{Binding SaveNoteCommand}"/>
         </StackLayout>
     </ContentPage.Content>
 </app:ContentPageBase>
