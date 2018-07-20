@@ -7,16 +7,22 @@
              XPositionRequest="0.5"
              YPositionRequest="0.5"
              ContentWidthRequest="0.9"
-             ContentHeightRequest="0.95"
+             ContentHeightRequest="0.5"
              BackgroundColor="#B3000000">
     <popup:Popup.Header>
-        <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand" BackgroundColor="DarkOrange">
-           
+        <StackLayout BackgroundColor="#EEEEEE">
+            <Label Text="Title" TextColor="Black" FontAttributes="Bold" FontSize="20"/>
         </StackLayout>
     </popup:Popup.Header>
     <popup:Popup.Body>
-        <StackLayout VerticalOptions="FillAndExpand" Padding="20,10" BackgroundColor="#FAFAFA">
-           
+        <StackLayout BackgroundColor="#EEEEEE">
+            <Label Text="Message" TextColor="Black"/>
         </StackLayout>
     </popup:Popup.Body>
+    <popup:Popup.Footer>
+        <StackLayout Orientation="Horizontal" VerticalOptions="FillAndExpand" BackgroundColor="#EEEEEE">
+            <Label Text="Yes" TextColor="#009688"/>
+            <Label Text="No" TextColor="#009688"/>
+        </StackLayout>
+    </popup:Popup.Footer>
 </popup:Popup>
