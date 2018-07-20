@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<popup:Popup xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:popup="clr-namespace:MWX.XamForms.Popup;assembly=MWX.XamForms.Popup"
+             xmlns:control="clr-namespace:XFCustomControl.Controls"
+             x:Class="XFCustomControl.Controls.CustomAlert"
+             XPositionRequest="0.5"
+             YPositionRequest="0.5"
+             ContentWidthRequest="0.9"
+             ContentHeightRequest="0.95"
+             BackgroundColor="#B3000000">
+    <popup:Popup.Header>
+        <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand" BackgroundColor="DarkOrange">
+           
+        </StackLayout>
+    </popup:Popup.Header>
+    <popup:Popup.Body>
+        <StackLayout VerticalOptions="FillAndExpand" Padding="20,10" BackgroundColor="#FAFAFA">
+           
+        </StackLayout>
+    </popup:Popup.Body>
+</popup:Popup>
