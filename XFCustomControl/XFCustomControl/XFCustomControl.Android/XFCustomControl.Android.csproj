@@ -60,6 +60,7 @@
     <Compile Include="Renderers\CustomButtonRenderer.cs" />
     <Compile Include="Renderers\CustomEditorRenderer.cs" />
     <Compile Include="Renderers\CustomNavigationPageRenderer.cs" />
+    <Compile Include="Renderers\HtmlLabelRenderer.cs" />
     <Compile Include="Renderers\ImageEntryRenderer.cs" />
     <Compile Include="Renderers\ListViewRenderder.cs" />
     <Compile Include="Renderers\RadioButtonRenderer.cs" />
