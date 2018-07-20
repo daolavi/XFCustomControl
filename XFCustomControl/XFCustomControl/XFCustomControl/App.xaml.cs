@@ -21,7 +21,7 @@ namespace XFCustomControl
 
         protected override async void OnInitialized()
         {
-            await NavigationService.NavigateAsync("CustomNavigationPage/DemoControlView");
+            await NavigationService.NavigateAsync("CustomNavigationPage/DemoControl3View");
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)

@@ -5,6 +5,7 @@
              x:Class="XFCustomControl.Views.DemoControl3View"
              xmlns:controls="clr-namespace:XFCustomControl.Controls"
              xmlns:behavior="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
+             xmlns:customBehavior="clr-namespace:XFCustomControl.Behaviors"
              x:Name="DemoControl3"
              NavigationPage.HasNavigationBar="False"
              >
@@ -19,7 +20,7 @@
                                            ImageSourceOn="ic_solid_down_arrow" 
                                            ImageSourceOff="ic_solid_up_arrow" 
                                            WidthImageRequest="16" HeightImageRequest="16"
-                                           Text="Find product" TextColor="White"/>
+                                           Text="Toolbar Item" TextColor="White"/>
                 </controls:CustomToolbar.ToolbarItems>
             </controls:CustomToolbar>
             <StackLayout Orientation="Horizontal">
@@ -36,6 +37,12 @@
                                    Note="{Binding Note}"
                                    Placeholder="Add Notes"
                                    SaveCommand="{Binding SaveNoteCommand}"/>
+            <Entry Placeholder="Input text with 13 character limited" HorizontalTextAlignment="Center">
+                <Entry.Behaviors>
+                    <customBehavior:EntryLengthValidatorBehavior MaxLength="13"/>
+                </Entry.Behaviors>
+            </Entry>
+            <Button x:Name="BtnDisplayAlert" Text="Display Alert" Command="{Binding DisplayAlertCommand}"/>
         </StackLayout>
     </ContentPage.Content>
 </app:ContentPageBase>

@@ -2,8 +2,14 @@
 <prism:PrismApplication xmlns:prism="clr-namespace:Prism.Autofac;assembly=Prism.Autofac.Forms" 
              xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="XFCustomControl.App">
+             x:Class="XFCustomControl.App"
+             xmlns:converters="clr-namespace:XFCustomControl.Converters">
 	<Application.Resources>
-    
-	</Application.Resources>
+        <converters:StringToBoolConverter x:Key="StringToBool"/>
+        <converters:InverseBoolConverter x:Key="InverseBool"/>
+        <converters:EnumToStringConverter x:Key="EnumToString"/>
+        <converters:NumberToStringConverter x:Key="NumberToString"/>
+        <converters:CountingConverter x:Key="Counting"/>
+        <converters:EqualsConverter x:Key="Equals"/>
+    </Application.Resources>
 </prism:PrismApplication>
