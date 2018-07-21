@@ -11,17 +11,12 @@ namespace XFCustomControl.Views
         public DemoControl3View()
         {
             InitializeComponent();
-            new PopupPageInitializer(this) { CustomPopup, CustomAlert };
+            new PopupPageInitializer(this) { CustomPopup};
         }
 
         private void BtnShowPopup_Clicked(object sender, EventArgs e)
         {
             CustomPopup.Show();
-        }
-
-        private void BtnDisplayAlert_Clicked(object sender, EventArgs e)
-        {
-            CustomAlert.Show();
         }
     }
 }

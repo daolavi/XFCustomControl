@@ -42,8 +42,8 @@
                     <customBehavior:EntryLengthValidatorBehavior MaxLength="13"/>
                 </Entry.Behaviors>
             </Entry>
-            <Button x:Name="BtnDisplayAlert" Text="Display Alert" Clicked="BtnDisplayAlert_Clicked"/>
-            <controls:CustomAlert x:Name="CustomAlert"/>
+            <Button x:Name="BtnDisplayAlert" Text="Display Alert" Command="{Binding DisplayAlertCommand}"/>
+            <Button x:Name="BtnDisplayCustomAlert" Text="Display Custom Alert" Command="{Binding DisplayCustomAlertCommand}"/>
             <Label HorizontalTextAlignment="Center">
                 <Label.FormattedText>
                     <FormattedString>

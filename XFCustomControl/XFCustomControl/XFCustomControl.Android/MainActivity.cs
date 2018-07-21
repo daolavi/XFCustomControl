@@ -7,6 +7,7 @@ using Android.Views;
 using Android.Widget;
 using Android.OS;
 using CarouselView.FormsPlugin.Android;
+using XFCustomControl.Droid.Service;
 
 namespace XFCustomControl.Droid
 {
@@ -20,6 +21,7 @@ namespace XFCustomControl.Droid
 
             base.OnCreate(bundle);
 
+            CustomAlert.CurrentActivity = this;
             global::Xamarin.Forms.Forms.Init(this, bundle);
             CarouselViewRenderer.Init();
             LoadApplication(new App());

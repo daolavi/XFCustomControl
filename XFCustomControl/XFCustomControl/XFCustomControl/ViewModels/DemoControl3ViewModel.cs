@@ -2,6 +2,7 @@
 using Prism.Navigation;
 using Prism.Services;
 using Xamarin.Forms;
+using XFCustomControl.Services;
 
 namespace XFCustomControl.ViewModels
 {
@@ -43,8 +44,14 @@ namespace XFCustomControl.ViewModels
 
         public DelegateCommand DisplayAlertCommand { get; set; }
 
+        public DelegateCommand DisplayCustomAlertCommand { get; set; }
+
+        private ICustomAlert _customAlert;
+
         public DemoControl3ViewModel(INavigationService navigationService, IPageDialogService pageDialogService)
         {
+            _customAlert = Xamarin.Forms.DependencyService.Get<ICustomAlert>();
+
             LineBreakMode = LineBreakMode.WordWrap;
 
             SaveNoteCommand = new DelegateCommand(() =>
@@ -54,7 +61,12 @@ namespace XFCustomControl.ViewModels
 
             DisplayAlertCommand = new DelegateCommand(async () =>
             {
-                await pageDialogService.DisplayAlertAsync("Info", "This is an Alert !", "DISMISS");
+                await pageDialogService.DisplayAlertAsync("Info", "Made <b>by me</b>", "DISMISS");
+            });
+
+            DisplayCustomAlertCommand = new DelegateCommand(() =>
+            {
+                _customAlert.Show("Info", "Made <b>by me</b>", "DISMISS");
             });
         }
     }
