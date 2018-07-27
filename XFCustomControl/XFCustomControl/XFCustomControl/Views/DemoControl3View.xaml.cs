@@ -1,5 +1,6 @@
 ﻿using MWX.XamForms.Popup;
 using System;
+using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using XFCustomControl.Controls;
 
@@ -17,6 +18,17 @@ namespace XFCustomControl.Views
         private void BtnShowPopup_Clicked(object sender, EventArgs e)
         {
             CustomPopup.Show();
+        }
+
+        private void BtnAddBox_Clicked(object sender, EventArgs e)
+        {
+            var box = new BoxView()
+            {
+                WidthRequest = 40,
+                HeightRequest = 40,
+                BackgroundColor = Color.Yellow
+            };
+            Container.Children.Add(box);
         }
     }
 }

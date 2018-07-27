@@ -56,6 +56,10 @@
                 </Label.FormattedText>
             </Label>
             <controls:HtmlLabel Text="Made &lt;b&gt;by&lt;/b&gt; &lt;i&gt;Me&lt;/i&gt;" HorizontalTextAlignment="Center" TextColor="Green"/>
+            <Button x:Name="BtnAddBox" Clicked="BtnAddBox_Clicked" Text="Add Box"/>
+            <ScrollView>
+                <controls:WrapLayout x:Name="Container" HorizontalOptions="FillAndExpand" Spacing="8" Orientation="Horizontal"/>
+            </ScrollView>
         </StackLayout>
     </ContentPage.Content>
 </app:ContentPageBase>
